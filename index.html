@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>РАЗЪЕБАТЬ</title>
+  <style>
+    body {
+      background: #111;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 100px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>РАЗЪЕБАТЬ СИСТЕМУ</h1>
+  <button onclick="razjebat()">РАЗЪЕБАТЬ</button>
+
+  <script>
+    function saveFile(filename, content) {
+      const blob = new Blob([content], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }
+
+    function razjebat() {
+      const content = `pochta@example.com:123456
+admin@evil.kz:qwerty
+test@mail.ru:password123
+`; // Тут будет результат работы (можно подставлять динамически)
+      saveFile("levskiy_rezultaty.txt", content);
+    }
+  </script>
+
+</body>
+</html>
